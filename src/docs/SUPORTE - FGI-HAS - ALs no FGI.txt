@@ -1,0 +1,20 @@
+Scripts tratando ALs Import
+
+OBS: Para AL import, o FGI não sabe tratar o AL para o SIF => Precisa saber qual é o casal. => SPD vai mandar como .tar
+
+SPD:
+brasil_trigger_IMPALHEBDO.sh => Cria .tar
+
+FGI
+FGI recebe o par de AL do SPD num arquivo .tar. Precisa dezipar e tratar o AL VDE. 
+Se OK vai integrar os dois, Se NOK, vai rejeitar os dois.
+
+generic_exec.sh  que chama os jobs do script_files_auto_log.ini. Ele trata os ALs que estão no WIP
+
+	- brasil_untar_files.sh => Dezipa
+	- brasil_trigger_Integration_IMPAL.sh => Chama os tratamento do FGI
+	- brasil_trigger_ALFiles.sh => Renomeia para permitir envio pelo Pelican (ver Peliposte.tab)
+	
+	
+Exceção: AL import que vêm do BPCS
+Mais um passo antes disso: brasil_trigger_TAR_BPCS_IMPALHEBDO.sh 	=> faz o .tar no recep do Pelican.
